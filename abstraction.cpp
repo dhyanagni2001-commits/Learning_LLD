@@ -151,6 +151,15 @@ int main() {
 
         car1 is a Car pointer, but the actual object is a SportsCar.
         This is possible because SportsCar inherits from Car.
+
+        THIS is where abstraction actually happens (not just inheritance):
+        car1 is typed as Car*, so all the code below only knows about
+        startEngine(), gearShift(), accelerate(), brake(), stopEngine().
+        It hides the implementation/complexity behind that simple interface —
+        it has no idea currentSpeed, currentGear, or isEngineOn even exist,
+        or how each method is actually implemented inside SportsCar.
+        Inheritance is just the mechanism that makes this possible;
+        abstraction is the hiding of "how" behind "what".
     */
     Car* car1 = new SportsCar(brand, model);
 
