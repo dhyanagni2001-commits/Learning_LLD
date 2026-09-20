@@ -11,6 +11,9 @@ class Car{
     public:
         virtual void acclerate() = 0;
         virtual void acclerate(int value) = 0;
+        void setmodel(std::string model){
+            this->model = model;
+        }
 
         ~Car(){
             std::cout << "Car deleted\n";
@@ -79,9 +82,11 @@ class electricCar: public Car{
 
 int main(){
     Car* car1 = new manualCar(10);
+    car1->setmodel("Toyota");
     car1->acclerate();
     car1->acclerate(5); 
     Car* car2 = new electricCar(20);
+    car2->setmodel("Tesla");
     car2->acclerate();
     car2->acclerate(10);
     delete car1;
