@@ -5,7 +5,7 @@
 class Car {
     public:
         bool isEngineOn; // shared state, common to every kind of car
-
+    public:
         virtual void accelerate() = 0; // pure virtual -> makes Car abstract
 
         // Needed because we delete derived objects through a Car* below;
