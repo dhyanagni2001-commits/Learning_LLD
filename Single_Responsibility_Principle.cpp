@@ -21,7 +21,7 @@ class product{
 // It does NOT know anything about databases.
 class checkout{
     private:
-    std::vector<product*> products;   // addresses of products in the cart
+    std::vector<product*> products;   // addresses of products in the cart and its has a realtionship with product class, its a pointer reference to product class
 
     public:
 
@@ -71,11 +71,13 @@ class addDataToDB {
 };
 
 int main(){
-    checkout c;                                    // the real cart
+    checkout c;    
+    addDataToDB db(&c);    // the real cart
     product* p1 = new product("Product 1", 100);
     product* p2 = new product("Product 2", 200);
     c.addProduct(p1);
     c.addProduct(p2);
     std::cout<<"Total: "<<c.calculateTotal()<<std::endl;
+    db.saveToDb();  // Save the checkout data to the database
     return 0;
 }
